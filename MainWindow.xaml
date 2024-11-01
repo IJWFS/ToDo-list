@@ -7,6 +7,33 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Text="ToDo list" Margin="5" VerticalAlignment="Center" FontSize="24"/>
+            <DockPanel HorizontalAlignment="Right">
+                <Button x:Name="btn_create" Margin="5" Content="Добавить закладку" Width="120" Height="30" Background="White" VerticalAlignment="Center" Click="btn_create_Click"/>
+                <Button x:Name="btn_delete" Margin="5" Content="Удалить закладку" Width="120" Height="30" Background="White" VerticalAlignment="Center" Click="btn_delete_Click"/>
+            </DockPanel>
+            
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListView Name="list_todo" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="200" Height="30">
+                            <Button Content="{Binding Title}" Background="White" x:Name="btn_title" Click="btn_title_Click"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </Window>
