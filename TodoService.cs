@@ -43,6 +43,23 @@ namespace ToDo_list
             todo.Description = description;
             return true;
         }
+        public string SaveTodo(string title, string description)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                return "Заголовок не должен быть пустым";
+            }
+
+            try
+            {
+                AddTodo(title, description);
+                return "Успешное добавление";
+            }
+            catch (Exception ex)
+            {
+                return $"Ошибка: {ex.Message}";
+            }
+        }
     }
 
 }
