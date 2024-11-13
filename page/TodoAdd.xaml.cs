@@ -29,16 +29,27 @@ namespace ToDo_list.page
         public TodoService todoService = new TodoService();
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                _todoService.AddTodo(txt_title.Text, new TextRange(txt_description.Document.ContentStart, txt_description.Document.ContentEnd).Text);
-                MessageBox.Show("Успешное добавление", "Уведомление");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка");
-            }
-            
+            //if(txt_title.Text != "")
+            //{
+            //    try
+            //    {
+            //        _todoService.AddTodo(txt_title.Text, new TextRange(txt_description.Document.ContentStart, txt_description.Document.ContentEnd).Text);
+            //        MessageBox.Show("Успешное добавление", "Уведомление");
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message, "Ошибка");
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Заголовок не должен быть пустым", "Уведомление");
+            //}
+            string title = txt_title.Text;
+            string description = new TextRange(txt_description.Document.ContentStart, txt_description.Document.ContentEnd).Text;
+            string resultMessage = _todoService.SaveTodo(title, description);
+            MessageBox.Show(resultMessage, "Уведомление");
+
         }
 
    
