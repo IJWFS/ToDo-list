@@ -81,7 +81,31 @@ namespace ToDo_list.Tests
             var result = todoService.SaveTodo(title, description);
 
             Assert.Equal("Успешное добавление", result);
-            //kk
+            
+        }
+        [Fact]
+        public void SaveTodo_ValidTitleAndDescriptionIsEmpty_ReturnsSuccessMessage()
+        {
+            var todoService = new TodoService();
+            string title = "Test Title";
+            string description = "";
+
+            var result = todoService.SaveTodo(title, description);
+
+            Assert.Equal("Успешное добавление", result);
+
+        }
+        [Fact]
+        public void SaveTodo_TitleIsEmptyAndDescriptionIsEmpty_ReturnsSuccessMessage()
+        {
+            var todoService = new TodoService();
+            string title = "Test Title";
+            string description = "";
+
+            var result = todoService.SaveTodo(title, description);
+
+            Assert.Equal("Успешное добавление", result);
+
         }
     }
 }
