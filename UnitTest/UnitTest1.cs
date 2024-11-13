@@ -99,12 +99,12 @@ namespace ToDo_list.Tests
         public void SaveTodo_TitleIsEmptyAndDescriptionIsEmpty_ReturnsSuccessMessage()
         {
             var todoService = new TodoService();
-            string title = "Test Title";
+            string title = "";
             string description = "";
 
             var result = todoService.SaveTodo(title, description);
 
-            Assert.Equal("Успешное добавление", result);
+            Assert.Equal("Заголовок не должен быть пустым", result);
 
         }
     }
